@@ -32,12 +32,13 @@ contract ExerciceSolution is IExerciceSolution{
     }
 
 	function withdrawTokens(uint256 amountToWithdraw)override external returns (uint256){
-        ownedTokens[msg.sender] -= amountToWithdraw;
         claimableERC20.transfer(msg.sender, amountToWithdraw);
+        ownedTokens[msg.sender] -= amountToWithdraw;
     }
 
-	function depositTokens(uint256 amountToWithdraw)override external returns (uint256){
-        return 0;
+	function depositTokens(uint256 amountToDeposit)override external returns (uint256){
+        claimableERC20.transferFrom(msg.sender, address(this), amountToDeposit);
+        ownedTokens[msg.sender] += amountToDeposit;
     }
 
 	function getERC20DepositAddress()override external returns (address){

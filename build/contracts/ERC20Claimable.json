@@ -1482,7 +1482,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-01-20T16:08:11.711Z",
+  "updatedAt": "2023-01-20T16:47:10.590Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
